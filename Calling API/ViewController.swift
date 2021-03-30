@@ -8,9 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var tokenLabel: UILabel!
-    
+    @IBOutlet weak var TxtField: UITextField!
     
     
     override func viewDidLoad() {
@@ -20,9 +20,10 @@ class ViewController: UIViewController {
     
     
     @IBAction func getTokenPressed(_ sender: Any) {
+        let textValue =  TxtField.text
         
     // Create URL
-    let url = URL(string: "https://jsonplaceholder.typicode.com/todos/"+UITextField.text )
+        let url = URL(string: "https://jsonplaceholder.typicode.com/todos/\(textValue!)" )
     guard let requestUrl = url else { fatalError() }
 
     // Create URL Request
@@ -55,7 +56,7 @@ class ViewController: UIViewController {
         }
    
  
-    @IBOutlet weak var TxtField: UITextField!
+   
     
     
 
