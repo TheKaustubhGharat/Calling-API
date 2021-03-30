@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class ViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var tokenLabel: UILabel!
     @IBOutlet weak var TxtField: UITextField!
@@ -17,6 +18,17 @@ class ViewController: UIViewController,UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         tokenLabel.text  = "hello"
+        
+        TxtField.delegate = self
+        TxtField.returnKeyType = .done
+        
+    }
+    
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        Display.text = TxtField.text!
+        return true
     }
     
     
@@ -24,12 +36,6 @@ class ViewController: UIViewController,UITextFieldDelegate {
         
         
         let userId =  TxtField.text
-        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-            
-            textField.resignFirstResponder()
-            return true
-            
-        }
         
         
     // Create URL
@@ -61,6 +67,11 @@ class ViewController: UIViewController,UITextFieldDelegate {
         // Convert HTTP Response Data to a simple String
         if let data = data, let dataString = String(data: data, encoding: .utf8) {
             print("Response data string:\n \(dataString)")
+           DispatchQueue.main.async {
+                let json = try! JSONSerialization.jsonObject(with: data, options: .allowFragments) as AnyObject
+                print(json)
+                self.Display.text = dataString
+            }
         }
         
         
