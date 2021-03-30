@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var tokenLabel: UILabel!
     @IBOutlet weak var TxtField: UITextField!
+    @IBOutlet weak var Display: UITextView!
     
     
     override func viewDidLoad() {
@@ -20,12 +21,23 @@ class ViewController: UIViewController,UITextFieldDelegate {
     
     
     @IBAction func getTokenPressed(_ sender: Any) {
-        let textValue =  TxtField.text
+        
+        
+        let userId =  TxtField.text
+        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            
+            textField.resignFirstResponder()
+            return true
+            
+        }
+        
         
     // Create URL
-        let url = URL(string: "https://jsonplaceholder.typicode.com/todos/\(textValue!)" )
-    guard let requestUrl = url else { fatalError() }
+        let url = URL(string: "https://jsonplaceholder.typicode.com/todos/\(userId!)" )
+        guard let requestUrl = url  else { fatalError() }
 
+        
+         
     // Create URL Request
     var request = URLRequest(url: requestUrl)
 
@@ -33,7 +45,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
     request.httpMethod = "GET"
 
     // Send HTTP Request
-    let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+    let task = URLSession.shared.dataTask(with: requestUrl) { (data, response, error) in
         
         // Check if Error took place
         if let error = error {
@@ -50,6 +62,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
         if let data = data, let dataString = String(data: data, encoding: .utf8) {
             print("Response data string:\n \(dataString)")
         }
+        
         
     }
     task.resume()

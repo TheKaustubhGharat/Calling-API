@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,13 +22,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="snow" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Ue5-ha-DDO">
-                                <rect key="frame" x="137.5" y="284" width="100" height="99"/>
+                                <rect key="frame" x="137.5" y="285.5" width="100" height="96.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="8By-pM-qhi"/>
                                     <constraint firstAttribute="width" constant="100" id="Ppx-pf-WFp"/>
                                 </constraints>
                             </imageView>
-                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wvA-rG-2fE">
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wvA-rG-2fE">
                                 <rect key="frame" x="10" y="605" width="355" height="72"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
                                 <state key="normal" title="Get Token">
@@ -39,9 +38,8 @@
                                     <action selector="getTokenPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U8q-hB-Xj8"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uZI-vS-ckg">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uZI-vS-ckg">
                                 <rect key="frame" x="16" y="181" width="343" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <string key="placeholder" base64-UTF8="YES">
 FlVzZXJJZCA6A
 </string>
@@ -51,21 +49,33 @@ FlVzZXJJZCA6A
 FlVzZXJJZA
 </string>
                             </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zpm-QP-IVq">
+                                <rect key="frame" x="0.0" y="438.5" width="375" height="146.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Ue5-ha-DDO" firstAttribute="top" secondItem="uZI-vS-ckg" secondAttribute="bottom" constant="68.5" id="4R9-eq-v8c"/>
                             <constraint firstItem="5Zc-YL-kG0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="Aoa-wU-9BQ"/>
+                            <constraint firstItem="uZI-vS-ckg" firstAttribute="centerX" secondItem="Ue5-ha-DDO" secondAttribute="centerX" id="POx-xH-bcF"/>
                             <constraint firstItem="wvA-rG-2fE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="TeI-Ii-6rB"/>
                             <constraint firstItem="5Zc-YL-kG0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="W4l-2k-Td0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wvA-rG-2fE" secondAttribute="trailing" constant="10" id="c3h-Hd-jEi"/>
                             <constraint firstItem="wvA-rG-2fE" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="10" id="eh8-DY-6qk"/>
                             <constraint firstItem="Ue5-ha-DDO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="j2W-gE-13P"/>
+                            <constraint firstItem="uZI-vS-ckg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="lDY-OG-DLU"/>
                             <constraint firstItem="Ue5-ha-DDO" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="lZe-qS-vqk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5Zc-YL-kG0" secondAttribute="trailing" constant="10" id="xDe-fX-luJ"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="Display" destination="zpm-QP-IVq" id="REv-rq-uWc"/>
                         <outlet property="TxtField" destination="uZI-vS-ckg" id="lOR-pY-JV3"/>
                         <outlet property="tokenLabel" destination="5Zc-YL-kG0" id="meg-Ko-aj2"/>
                     </connections>
@@ -76,6 +86,6 @@ FlVzZXJJZA
         </scene>
     </scenes>
     <resources>
-        <image name="snow" catalog="system" width="121" height="128"/>
+        <image name="snow" catalog="system" width="120" height="128"/>
     </resources>
 </document>
